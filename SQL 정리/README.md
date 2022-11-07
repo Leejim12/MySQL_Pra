@@ -5,8 +5,8 @@
 
 -. MySQL Login
 '''
-루트 로그인 : mysql -u root -p
-정상 로그인 : mysql -h ip주소 -u 계정 -p;
+        루트 로그인 : mysql -u root -p
+        정상 로그인 : mysql -h ip주소 -u 계정 -p;
 '''
 
 ## 기본 문법
@@ -88,17 +88,18 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'someuser'@'localhost';
 --------------------------------------------------
 ## Join
 -. 내부조인
-        Select
-          users.first_name,
-          users.last_name,
-          posts.title,
-          posts.publish_date
-        from users u
-          inner join posts p
-          On u.id = p.user_id
-        Order by p.title; 
+Select
+users.first_name,
+users.last_name,
+posts.title,
+posts.publish_date
+from users u
+inner join posts p
+On u.id = p.user_id
+Order by p.title; 
 
--. Left Join
+-. Left Join 
+* left join : 일치하는 것 만
         SELECT
         comments.body,
         posts.title
