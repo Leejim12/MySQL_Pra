@@ -23,11 +23,15 @@ create users '유저명'@'localhost' identified by 'somepassword';
 Drop user 'someuser'@'localhost';
 ```
 -. 접근권한 부여
-```Grant All PRIVILEGES ON *.* TO 'someuser'@'localhost';
-FLUSH PRIVILEGES;```
+```
+Grant All PRIVILEGES ON *.* TO 'someuser'@'localhost';
+FLUSH PRIVILEGES;
+```
 
 -. 사용자의 권한 확인.
-```Show Grants for 'someuser'@'localhost';```
+```
+Show Grants for 'someuser'@'localhost';
+```
 
 -. 권한 회수
 ```
@@ -35,10 +39,12 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'someuser'@'localhost';
 ( REVOKE UPDATE )
 ```
 -. 데이터베이스 보기
-```Show Databases
+```
+Show Databases
 ```
 -. DB 생성
-```Create Database dbname;
+```
+Create Database dbname;
 ```
 -. DB 선택
 ```
@@ -117,7 +123,18 @@ FROM comments
 LEFT JOIN posts ON posts.id = comments.post_id
 ORDER BY posts.title;
 ```
-
+-. 다중 join
+```
+SELECT
+comments.body,
+posts.title,
+users.first_name,
+users.last_name
+FROM comments
+INNER JOIN posts on posts.id = comments.post_id
+INNER JOIN users on users.id = comments.user_id
+ORDER BY posts.title;
+```
 
 --------------------------------------------------
 ## Select 관련
@@ -170,4 +187,5 @@ SELECT age, avg(age) FROM users GROUP BY age HAVING avg(age) >=2;
 -. SubQuery
 ```
 SELECT * FROM users WHERE location=
-(SELECT location FROM users WHERE email = 'sara@gmail.com’);```
+(SELECT location FROM users WHERE email = 'sara@gmail.com’);
+```
