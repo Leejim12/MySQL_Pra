@@ -4,16 +4,16 @@
 #SQL문 정리
 
 -. MySQL Login
-'''
+```
         루트 로그인 : mysql -u root -p
         정상 로그인 : mysql -h ip주소 -u 계정 -p;
-'''
+```
 
 ## 기본 문법
 유저 보여주기
-'''
+```
 select user, host from mysql.user;
-'''
+```
 유저 생성
 '''
 create users '유저명'@'localhost' identified by 'somepassword';
