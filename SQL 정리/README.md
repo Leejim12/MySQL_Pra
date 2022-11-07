@@ -189,3 +189,12 @@ SELECT age, avg(age) FROM users GROUP BY age HAVING avg(age) >=2;
 SELECT * FROM users WHERE location=
 (SELECT location FROM users WHERE email = 'sara@gmail.com’);
 ```
+--------------------------------------------------------
+## 집계함수
+```
+SELECT COUNT(id) FROM users;
+SELECT MAX(age) FROM users;
+SELECT MIN(age) FROM users;
+SELECT SUM(age) FROM users;
+SELECT UCASE(first_name), LCASE(last_name) FROM users;
+```
