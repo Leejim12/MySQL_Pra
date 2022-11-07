@@ -74,10 +74,12 @@ body TEXT,
 publish_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY(id),
 FOREIGN KEY (user_id) REFERENCES users(id)
-);```
+);
+```
 
 -. 외래키(2개)와 함께 테이블 생성
-```CREATE TABLE comments(
+```
+CREATE TABLE comments(
 id INT AUTO_INCREMENT,
 post_id INT,
 user_id INT,
@@ -86,11 +88,13 @@ publish_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY(id),
 FOREIGN KEY(user_id) references users(id),
 FOREIGN KEY(post_id) references posts(id)
-);```
+);
+```
 
 
 --------------------------------------------------
 ## Join
+
 -. 내부조인
 ```
 Select
@@ -111,7 +115,8 @@ comments.body,
 posts.title
 FROM comments
 LEFT JOIN posts ON posts.id = comments.post_id
-ORDER BY posts.title;```
+ORDER BY posts.title;
+```
 
 
 --------------------------------------------------
@@ -156,4 +161,13 @@ SELECT * FROM users WHERE dept LIKE '%e%';
 SELECT * FROM users WHERE dept NOT LIKE 'd%';
 ```
 -. Group by + Having
+```
+SELECT age FROM users GROUP BY age;
+SELECT age FROM users WHERE age > 20 GROUP BY age;
+SELECT age, avg(age) FROM users GROUP BY age HAVING avg(age) >=2;
+```
 
+-. SubQuery
+```
+SELECT * FROM users WHERE location=
+(SELECT location FROM users WHERE email = 'sara@gmail.com’);```
