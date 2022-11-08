@@ -10,15 +10,15 @@
 ```
 
 ## 기본 문법
-유저 보여주기
+-. 유저 보여주기
 ```
 select user, host from mysql.user;
 ```
-유저 생성
+-. 유저 생성
 ```
 create users '유저명'@'localhost' identified by 'somepassword';
 ```
-유저 삭제
+-. 유저 삭제
 ```
 Drop user 'someuser'@'localhost';
 ```
@@ -247,6 +247,21 @@ WHERE SAL = (SELECT MAX(SAL) FROM EMP WHERE DEPTNO = 10);
 -. 단계별 주요 작업 내용
 ```
 
+```
+
+ㅁ. 관계형 데이터 모델 구조
+```
+1. 릴레이션
+2. 2차원 테이블 형태 
+-. 열 == column == Attribute ** Domain : 속성이 가질 수 있는 값 범위
+-. 행 == Row == Tuple
+```
+
+#### 릴레이션 특징
+```
+1. 유일성 : 모든 튜플은 다른 값
+2. 무순서성 : 순서없음.
+3. 원자성 : 분해불가
 ```
 
 -----------------------------------------------------------------

@@ -58,3 +58,26 @@ IF(FREEZER_YN IS NULL,'N',FREEZER_YN) AS FREEZER_YN FROM FOOD_WAREHOUSE WHERE AD
 ```
 SELECT PRODUCT_ID,PRODUCT_NAME,PRODUCT_CD,CATEGORY,PRICE from FOOD_PRODUCT order by PRICE desc limit 1;
 ```
+
+## 3월 태어난 여성 회원 목록 출력
+> 왜 틀렸다고 하는지 모르겠음.
+```
+SELECT member_id, member_name, gender, date_format(date_of_birth, "%Y-%m-%d") as date_for_birth
+from member_profile
+where gender = 'W' and tlno is not null and date_format(date_of_birth, "%m") = "03";
+```
+> 틀린 sql
+```
+SELECT MEMBER_ID,MEMBER_NAME,GENDER,DATE_FORMAT(DATE_OF_BIRTH,'%Y-%m-%d') as DATE_OF_BIRTH FROM MEMBER_PROFILE WHERE MONTH(DATE_OF_BIRTH)=3 AND TLNO IS NOT NULL ORDER BY MEMBER_ID ASC;
+```
+
+## 나이 정보가 없는 회원 수 구하기
+```
+SELECT count(USER_ID) as USERS from USER_INFO where AGE is NULL;
+```
+
+## 카테고리 별 상품 갯수 구하기
+```
+SELECT left(PRODUCT_CODE,2) as CATEGORY,count(PRODUCT_CODE) as PRODUCTS from PRODUCT group by left(PRODUCT_CODE,2) order by 1;
+```
+
