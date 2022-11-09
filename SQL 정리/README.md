@@ -50,10 +50,23 @@ Create Database dbname;
 ```
 use dbname;
 ```
--. 제약조건
+-. 외래키 설정
+1. 이미 있는 테이블
 ```
-CONSTRAINT FK_DEPTNO FROEIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO)
-DEPT의 DEPTNO와 연결.
+ALTER TABLE Reservation
+ADD CONSTRAINT CustomerID
+FOREIGN KEY (ID)
+REFERENCES Customer (ID);
+```
+2. 테이블 생성 시 애초에 
+```
+CREATE TABLE Test2
+(
+    ID INT,
+    ParentID INT,
+    FOREIGN KEY (ParentID)
+    REFERENCES Test1(ID) ON UPDATE CASCADE
+);
 ```
 
 ## 테이블 관련
