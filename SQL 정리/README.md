@@ -50,6 +50,12 @@ Create Database dbname;
 ```
 use dbname;
 ```
+-. 제약조건
+```
+CONSTRAINT FK_DEPTNO FROEIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO)
+DEPT의 DEPTNO와 연결.
+```
+
 ## 테이블 관련
 -. 테이블 생성
 ```
