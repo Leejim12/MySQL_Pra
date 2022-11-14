@@ -14,7 +14,7 @@ select * from usertbl where name like '김경호';
 select name,height from usertbl where height >= 177;
 
 -- 1970년 이후 출생 & 키가 182 이상인 사람 아이디와 이름 검색
-select userID,name from usertbl where month(mDate)>=1970 and height >=182; 
+select userID,name from usertbl where month(mDate)>=1970 and height >=182; -- 체크 필요
 
 -- 1970년 이후에 출생했거나 키가 182이상인 사람 아이디와 이름 검색
 select userID,name from usertbl where month(mDate)>=1970 or height >= 182;

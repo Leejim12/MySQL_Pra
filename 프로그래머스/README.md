@@ -98,3 +98,13 @@ group by price_group
 order by price_group
 ```
 
+### 상품 별 오프라인 매출 구하기
+```
+SELECT 
+    P.PRODUCT_CODE,
+    SUM(O.SALES_AMOUNT*P.PRICE) as SALES
+from PRODUCT P,OFFLINE_SALE O
+WHERE P.PRODUCT_ID = O.PRODUCT_ID
+group by P.PRODUCT_CODE
+order by 2 DESC, 1 ASC;
+```
