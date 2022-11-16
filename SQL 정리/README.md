@@ -123,13 +123,13 @@ FOREIGN KEY(post_id) references posts(id)
 -. 내부조인
 ```
 Select
-users.first_name,
-users.last_name,
-posts.title,
-posts.publish_date
+  users.first_name,
+  users.last_name,
+  posts.title,
+  posts.publish_date
 from users u
-inner join posts p
-On u.id = p.user_id
+  inner join posts p
+  On u.id = p.user_id
 Order by p.title; 
 ```
 -. Left Join 
@@ -154,6 +154,24 @@ INNER JOIN posts on posts.id = comments.post_id
 INNER JOIN users on users.id = comments.user_id
 ORDER BY posts.title;
 ```
+-. 외부조인 예제
+```
+-- 외부조인1 : 교수정보 & 해당 교수 담당 교과목
+select 교수.사번, 교수.이름, 과목.과목명
+from 교수 inner join 과목 on 교수.사번 = 과목.담당교수;
+
+-- 외부조인2 : 담당과목 없는 교수 자료 -1
+select 교수.사번, 교수.이름, 과목.과목명
+from 교수 left outer join 과목 on 교수.사번 = 과목.담당교수;
+
+-- 외부조인2 : 담당과목 없는 교수 자료 -2
+select 교수.사번, 교수.이름, 과목.과목명
+from 과목 right outer join 교수 on 교수.사번 = 과목.담당교수;
+```
+-. 조인 시 집계 함수 사용
+
+
+
 
 --------------------------------------------------
 ## Select 관련

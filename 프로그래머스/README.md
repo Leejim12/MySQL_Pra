@@ -108,3 +108,12 @@ WHERE P.PRODUCT_ID = O.PRODUCT_ID
 group by P.PRODUCT_CODE
 order by 2 DESC, 1 ASC;
 ```
+
+### 재구매가 일어난 상품과 회원 리스트 구하기
+```
+SELECT distinct USER_ID,PRODUCT_ID
+from ONLINE_SALE
+group by 1,2
+having count(ONLINE_SALE_ID)>1
+order by 1 ASC, 2 DESC;
+```
