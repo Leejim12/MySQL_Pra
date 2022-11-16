@@ -117,3 +117,8 @@ group by 1,2
 having count(ONLINE_SALE_ID)>1
 order by 1 ASC, 2 DESC;
 ```
+
+### 가장 비싼 상품 구하기
+```
+SELECT max(price) as 'MAX_PRICE' from PRODUCT;
+```
